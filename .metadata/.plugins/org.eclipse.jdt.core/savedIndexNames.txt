@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+/Users/abdussalamabdurakhimov/Desktop/project/.metadata/.plugins/org.eclipse.jdt.core
+3159365027.index
+3104125596.index
+1865797976.index
