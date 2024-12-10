@@ -5,12 +5,12 @@ import java.util.Set;
 
 public class UniversityJournal {
 
-    private Set<String> disciplineList; // Список дисциплин
-    private boolean isDataSaved; // Сохранены ли данные
-    private Set<String> disciplineProfessors; // Список преподавателей по дисциплинам
-    private Set<Student> studentList; // Список студентов
+    private Set<String> disciplineList;
+    private boolean isDataSaved;
+    private Set<String> disciplineProfessors; 
+    private Set<Student> studentList;
 
-    // Конструктор
+    
     public UniversityJournal() {
         this.disciplineList = new HashSet<>();
         this.disciplineProfessors = new HashSet<>();
@@ -18,7 +18,7 @@ public class UniversityJournal {
         this.isDataSaved = false;
     }
 
-    // Getters и Setters
+    
     public Set<String> getDisciplineList() {
         return disciplineList;
     }
@@ -51,11 +51,9 @@ public class UniversityJournal {
         this.studentList = studentList;
     }
 
-    // Операции
+    
 
-    /**
-     * Отметить посещение студента.
-     */
+    
     public boolean markAttendance(Student student) {
         if (studentList.contains(student)) {
             System.out.println("Attendance marked for: " + student.getName());
@@ -65,17 +63,14 @@ public class UniversityJournal {
         return false;
     }
 
-    /**
-     * Добавить дисциплину.
-     */
+    
+    
     public void addDiscipline(String discipline) {
         disciplineList.add(discipline);
         System.out.println("Discipline added: " + discipline);
     }
 
-    /**
-     * Удалить дисциплину.
-     */
+    
     public void removeDiscipline(String discipline) {
         if (disciplineList.remove(discipline)) {
             System.out.println("Discipline removed: " + discipline);
@@ -84,17 +79,13 @@ public class UniversityJournal {
         }
     }
 
-    /**
-     * Добавить студента.
-     */
+   
     public void addStudent(Student student) {
         studentList.add(student);
         System.out.println("Student added: " + student.getName());
     }
 
-    /**
-     * Удалить студента.
-     */
+    
     public void removeStudent(Student student) {
         if (studentList.remove(student)) {
             System.out.println("Student removed: " + student.getName());
