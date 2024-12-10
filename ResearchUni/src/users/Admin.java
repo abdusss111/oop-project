@@ -1,11 +1,12 @@
 package users;
 
+import courses.Course;
 /**
  * @generated
  */
-public class Admin extends Employee {
+public class Admin{
 
-    private Integer id; // Называние поля приведено к стандарту Java (camelCase)
+    private int id; // Называние поля приведено к стандарту Java (camelCase)
     private String username;
     private String password;
 
@@ -34,52 +35,26 @@ public class Admin extends Employee {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    // Methods for Admin actions
-
-    /**
-     * Method to edit student details
-     */
+    
+    public void registerToCourse(Student s, Course c) {
+    	c.getStudentsList().add(s);
+    }
     public void editStudentDetails(Student student, String newName, int newAge) {
-        student.setName(newName);
-        student.setAge(newAge);
+//        student.setName(newName);
+//        student.setAge(newAge);
         System.out.println("Student details updated: " + student);
     }
 
     /**
      * Method to edit discipline details
      */
-    public void editDisciplineDetails(Discipline discipline, String newTitle, int newCredits) {
-        discipline.setTitle(newTitle);
-        discipline.setCredits(newCredits);
+    public void editDisciplineDetails(Course discipline, String newTitle, int newCredits) {
+//        discipline.setTitle(newTitle);
+//        discipline.setCredits(newCredits);
         System.out.println("Discipline details updated: " + discipline);
     }
 
-    /**
-     * Method to view student attendance
-     */
-    public void viewStudentAttendance(Student student) {
-        System.out.println("Attendance for " + student.getName() + ": " + student.getAttendance());
-    }
-
-    /**
-     * Method to generate a student report
-     */
-    public String generateStudentReport(Student student) {
-        return "Report for " + student.getName() + ": GPA = " + student.getGpa();
-    }
-
-    /**
-     * Method to generate a discipline report
-     */
-    public String generateDisciplineReport(Discipline discipline) {
-        return "Discipline: " + discipline.getTitle() + ", Credits: " + discipline.getCredits();
-    }
-
-    /**
-     * Method to generate attendance report
-     */
     public String generateAttendanceReport(Student student) {
-        return "Attendance Report for " + student.getName() + ": " + student.getAttendance() + "%";
+        return "Attendance Report for " + student.getUsername() + ": " + student.getAttendance() + "%";
     }
 }

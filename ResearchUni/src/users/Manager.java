@@ -10,12 +10,12 @@ public class Manager extends Employee {
     /**
      * Set of complaints submitted by employees or students.
      */
-    private Set<String> reports;
+    private Set<Complaint> reports;
 
     /**
      * List of employee requests awaiting action.
      */
-    private List<String> employeeRequests;
+    public List<Complaint> employeeRequests;
 
     /**
      * Number of active projects the manager oversees.
@@ -25,20 +25,39 @@ public class Manager extends Employee {
     /**
      * Default constructor initializes default values.
      */
+ 
     public Manager() {
         super();
         this.reports = new HashSet<>();
         this.employeeRequests = new ArrayList<>();
         this.activeProjects = 0;
     }
+    
+    
+    
+    public String getRequests() {
+        StringBuilder requestsString = new StringBuilder();
+        
+        for (Complaint complaint : employeeRequests) {
+            requestsString.append(complaint.toString()).append("\n"); // Add each complaint followed by a newline
+        }
+        
+        return requestsString.toString();
+    }
+    
+    public String reports(Student s) {
+      
+        return s.listOfMarks();
+    }
 
+    
     /**
      * Registers a new student in the system.
      *
      * @param studentName The name of the student to register.
      */
     public void registerStudent(String studentName) {
-        System.out.println("Student \"" + studentName + "\" has been registered successfully.");
+       
         // В реальной системе можно добавить логику добавления студента в базу данных.
     }
 
@@ -72,12 +91,12 @@ public class Manager extends Employee {
      * @param request The request to process.
      */
     public void processEmployeeRequest(String request) {
-        if (employeeRequests.contains(request)) {
-            employeeRequests.remove(request);
-            System.out.println("Request \"" + request + "\" has been processed.");
-        } else {
-            System.out.println("Request \"" + request + "\" not found.");
-        }
+//        if (employeeRequests.contains(request)) {
+//            employeeRequests.remove(request);
+//            System.out.println("Request \"" + request + "\" has been processed.");
+//        } else {
+//            System.out.println("Request \"" + request + "\" not found.");
+//        }
     }
 
     /**
@@ -85,10 +104,10 @@ public class Manager extends Employee {
      *
      * @param complaint The text of the complaint.
      */
-    public void addComplaint(String complaint) {
-        reports.add(complaint);
-        System.out.println("Complaint added: \"" + complaint + "\"");
-    }
+//    public void addComplaint(String complaint) {
+//        reports.add(complaint);
+//        System.out.println("Complaint added: \"" + complaint + "\"");
+//    }
 
     /**
      * Generates a summary of the manager's reports and active tasks.
@@ -102,19 +121,19 @@ public class Manager extends Employee {
 
     // Getters and Setters
 
-    public Set<String> getReports() {
-        return reports;
-    }
+//    public Set<String> getReports() {
+//        return reports;
+//    }
+//
+//    public void setReports(Set<String> reports) {
+//        this.reports = reports;
+//    }
 
-    public void setReports(Set<String> reports) {
-        this.reports = reports;
-    }
-
-    public List<String> getEmployeeRequests() {
+    public List<Complaint> getEmployeeRequests() {
         return employeeRequests;
     }
 
-    public void setEmployeeRequests(List<String> employeeRequests) {
+    public void setEmployeeRequests(List<Complaint> employeeRequests) {
         this.employeeRequests = employeeRequests;
     }
 

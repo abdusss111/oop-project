@@ -1,15 +1,23 @@
 package users;
 
-public class User {
+import java.io.Serializable;
+
+public abstract class User implements Serializable {
     private int id; // Добавлен тип данных.
+    private String name;
     private String username;
     private String password;
     public User() {
-        // Инициализация значений по умолчанию.
         this.id = 0;
-        this.username = "";
-        this.password = "";
+        
     }
+    
+    public User(String name, int id) {
+    	this.name = name;
+    	this.id = id;
+    }
+    
+    
 
     /**
      * Parameterized constructor to initialize the user.
@@ -73,8 +81,14 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='*****'" + // Маскируем пароль.
-                '}';
+                ", username='" + username + '\'' + '}';
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

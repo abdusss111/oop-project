@@ -1,21 +1,14 @@
 package users;
 
-import java.util.ArrayList;
-import java.util.List;
+import courses.*;
+import java.util.*;
 public class Teacher extends Employee {
 
- 
     private List<String> courses;
-
-    /**
-     * (e.g., PhD, MSc).
-     */
     private String degree;
     private int officeHours;
 
-    /**
-     * Faculty or department the teacher belongs to.
-     */
+ 
     private String faculty;
     public Teacher() {
         super();
@@ -25,41 +18,22 @@ public class Teacher extends Employee {
         this.faculty = "Unknown";
     }
 
-    /**
-     * Parameterized constructor to initialize the teacher with specific values.
-     *
-     * @param id          Teacher's ID.
-     * @param username    Teacher's username.
-     * @param password    Teacher's password.
-     * @param role        Role of the teacher.
-     * @param department  Department of the teacher.
-     * @param salary      Teacher's salary.
-     * @param workingHours Weekly working hours.
-     * @param vacationDays Available vacation days.
-     * @param degree      Academic degree of the teacher.
-     * @param officeHours Weekly office hours.
-     * @param faculty     Faculty of the teacher.
-     */
-    public Teacher(int id, String username, String password, String role, String department, int salary, int workingHours, int vacationDays, String degree, int officeHours, String faculty) {
-        super(id, username, password, role, department, salary, workingHours, vacationDays);
+    public Teacher(int id, String username, String password, String role, String department, String degree, int officeHours, String faculty) {
+        super(id, username, password, role, department);
         this.courses = new ArrayList<>();
         this.degree = degree;
         this.officeHours = officeHours;
         this.faculty = faculty;
     }
 
-    /**
-     * Adds a course to the teacher's list and ensures no duplicates.
-     *
-     * @param course The course to add.
-     */
-    public void addCourse(String course) {
-        if (!courses.contains(course)) {
-            courses.add(course);
-            System.out.println("Course \"" + course + "\" has been added to " + getUsername() + "'s list.");
-        } else {
-            System.out.println("Course \"" + course + "\" is already in the list.");
-        }
+
+    public void addCourse(Course course) {
+//        if (!courses.contains(course)) {
+//            courses.add(course);
+//            System.out.println("Course \"" + course + "\" has been added to " + getUsername() + "'s list.");
+//        } else {
+//            System.out.println("Course \"" + course + "\" is already in the list.");
+//        }
     }
 
     
@@ -81,13 +55,12 @@ public class Teacher extends Employee {
      * @param courseName  The course for which the mark is assigned.
      * @param mark        The mark to assign (must be between 0 and 100).
      */
-    public void putMark(String studentName, String courseName, int mark) {
-        if (mark < 0 || mark > 100) {
-            System.out.println("Invalid mark! Please provide a mark between 0 and 100.");
-        } else {
-            System.out.println("Mark " + mark + " has been assigned to " + studentName + " for the course \"" + courseName + "\".");
-        }
+    public void putMark(Student student, Course course, Mark mark) {
+        Map<Mark, Course> newEntry = new HashMap<>();
+        newEntry.put(mark, course); // Create a new map entry for the course and mark
+        student.marks.add(newEntry); // Add this map to the vector
     }
+
 
     /**
      * Views marks for students in a specific course with mock data.
@@ -95,10 +68,7 @@ public class Teacher extends Employee {
      * @param courseName The course name.
      */
     public void viewMarks(String courseName) {
-        System.out.println("Viewing marks for course: " + courseName);
-        System.out.println("Example marks (mock data):");
-        System.out.println("- John Doe: 95");
-        System.out.println("- Jane Smith: 88");
+    	
     }
 
     /**
@@ -119,10 +89,8 @@ public class Teacher extends Employee {
      * @param complaintTitle The title of the complaint.
      * @param complaintBody  The body of the complaint.
      */
-    public void sendComplaint(String complaintTitle, String complaintBody) {
-        System.out.println("Complaint has been submitted with the following details:");
-        System.out.println("Title: " + complaintTitle);
-        System.out.println("Body: " + complaintBody);
+    public void sendComplaint(Student s, Manager m, Urgency urg, String title) {
+    	m.employeeRequests.add(new Complaint(title, urg));    
     }
 
     // Getters and Setters
@@ -158,6 +126,8 @@ public class Teacher extends Employee {
     public void setFaculty(String faculty) {
         this.faculty = faculty;
     }
+    
+  
 
     @Override
     public String toString() {

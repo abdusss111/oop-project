@@ -1,0 +1,62 @@
+package databases;
+
+import users.User;
+import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UsersDB {
+    private static final String FILE_NAME = "students.db"; // File to store the students
+    private static StudentDatabase instance;
+    private List<Student> students;
+
+    // Private constructor for Singleton pattern
+    private StudentDatabase() {
+        students = new ArrayList<>();
+        loadData();  // Load data from the file when the database is created
+    }
+
+    // Method to get the Singleton instance
+    public static StudentDatabase getInstance() {
+        if (instance == null) {
+            synchronized (StudentDatabase.class) {
+                if (instance == null) {
+                    instance = new StudentDatabase();
+                }
+            }
+        }
+        return instance;
+    }
+
+    // Method to add a student to the database
+    public void addStudent(Student student) {
+        students.add(student);
+        saveData();  // Save the updated list to the file
+    }
+
+    // Method to get all students
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    // Method to load data from the file
+    private void loadData() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
+            students = (List<Student>) ois.readObject();  // Deserialize the object
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("No previous data found, starting fresh.");
+        }
+    }
+
+    // Method to save data to the file
+    private void saveData() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
+            oos.writeObject(students);  // Serialize the list of students
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+

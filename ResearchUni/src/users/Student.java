@@ -1,6 +1,8 @@
 package users;
 
 import java.util.*;
+import users.Student;
+import courses.*;
 
 /**
  * Represents a Student with specific attributes and behaviors.
@@ -10,17 +12,18 @@ public class Student extends User {
     /**
      * Set of clubs the student is a member of.
      */
-    private Set<String> clubs;
 
     /**
      * Student's major (field of study).
      */
+	public Vector<Map<Mark, Course>> marks;
+	
     private String major;
 
     /**
      * Student's transcript (list of grades for courses).
      */
-    private Map<String, String> transcript; // Курс -> Оценка
+    private Map<String, String> transcript; // 
 
     /**
      * Set of courses the student is enrolled in.
@@ -45,16 +48,17 @@ public class Student extends User {
     /**
      * Default constructor initializes default values.
      */
+    public Student(String name, int id) {
+        super(name, id);
+        this.marks = new Vector<Map<Mark, Course>>();
+       
+    }
+    
     public Student() {
         super();
-        this.clubs = new HashSet<>();
-        this.transcript = new HashMap<>();
-        this.enrolledCourses = new HashSet<>();
-        this.grades = new HashMap<>();
-        this.major = "Undeclared";
-        this.dormLiver = false;
-        this.grant = false;
     }
+    
+    
 
     /**
      * Registers the student for a course.
@@ -101,14 +105,7 @@ public class Student extends User {
      *
      * @param clubName The name of the club to join.
      */
-    public void participateInClub(String clubName) {
-        if (clubs.contains(clubName)) {
-            System.out.println("You are already a member of the club: " + clubName);
-        } else {
-            clubs.add(clubName);
-            System.out.println("Successfully joined the club: " + clubName);
-        }
-    }
+
 
     /**
      * Views all courses the student is enrolled in.
@@ -133,13 +130,7 @@ public class Student extends User {
 
     // Getters and Setters
 
-    public Set<String> getClubs() {
-        return clubs;
-    }
 
-    public void setClubs(Set<String> clubs) {
-        this.clubs = clubs;
-    }
 
     public String getMajor() {
         return major;
@@ -192,13 +183,48 @@ public class Student extends User {
     @Override
     public String toString() {
         return "Student{" +
-                "id=" + getId() +
+        		"name=" + getName() +
+                ", id=" + getId() +
                 ", username='" + getUsername() + '\'' +
                 ", major='" + major + '\'' +
                 ", dormLiver=" + dormLiver +
                 ", grant=" + grant +
                 ", enrolledCourses=" + enrolledCourses +
-                ", clubs=" + clubs +
                 '}';
     }
+
+	public String getAttendance() {
+		return null;
+	}
+
+	public String getUsername() {
+		return null;
+	}
+
+	public Vector<Map<Mark, Course>> getMarks() {
+		return marks;
+	}
+
+	public void setMarks(Vector<Map<Mark, Course>> marks) {
+		this.marks = marks;
+	}
+	
+	public String listOfMarks() {
+	    StringBuilder result = new StringBuilder();
+	    for (Map<Mark, Course> map : marks) {
+	        for (Map.Entry<Mark, Course> entry : map.entrySet()) {
+	            result.append(this.getName())
+	            	  .append(" have ")
+	            	  .append(entry.getKey().getValue()) // Assuming Mark has a `getValue()` method
+	                  .append(" in ")
+	                  .append(entry.getValue().getTitle()) // Assuming Course has a `getTitle()` method
+	                  .append("\n");
+	        }
+	    }
+	    return result.toString();
+	}
+
+
+
+
 }

@@ -1,105 +1,108 @@
 package courses;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import users.Student;
 
 public class UniversityJournal {
+    private String disciplineList;
 
-    private Set<String> disciplineList; // Список дисциплин
-    private boolean isDataSaved; // Сохранены ли данные
-    private Set<String> disciplineProfessors; // Список преподавателей по дисциплинам
-    private Set<Student> studentList; // Список студентов
+    private boolean isDataSaved;
+    
+   
+    private String disciplineProfessors;
+    
+   
+    private Set<Student> studentList;
 
-    // Конструктор
-    public UniversityJournal() {
-        this.disciplineList = new HashSet<>();
-        this.disciplineProfessors = new HashSet<>();
-        this.studentList = new HashSet<>();
-        this.isDataSaved = false;
+    private Student student;
+    
+    
+
+   
+    public String getDisciplineList() {
+        return this.disciplineList;
     }
-
-    // Getters и Setters
-    public Set<String> getDisciplineList() {
-        return disciplineList;
-    }
-
-    public void setDisciplineList(Set<String> disciplineList) {
+    
+   
+    public void setDisciplineList(String disciplineList) {
         this.disciplineList = disciplineList;
     }
-
+    
+    
+   
     public boolean getIsDataSaved() {
-        return isDataSaved;
+        return this.isDataSaved;
     }
-
-    public void setIsDataSaved(boolean isDataSaved) {
+    
+   
+    public void setIsDataSaved(Boolean isDataSaved) {
         this.isDataSaved = isDataSaved;
     }
-
-    public Set<String> getDisciplineProfessors() {
-        return disciplineProfessors;
+    
+    
+   
+    public String getDisciplineProfessors() {
+        return this.disciplineProfessors;
     }
-
-    public void setDisciplineProfessors(Set<String> disciplineProfessors) {
+    
+   
+    public void setDisciplineProfessors(String disciplineProfessors) {
         this.disciplineProfessors = disciplineProfessors;
     }
-
+    
+    
+   
     public Set<Student> getStudentList() {
-        return studentList;
+        if (this.studentList == null) {
+            this.studentList = new HashSet<Student>();
+        }
+        return this.studentList;
     }
-
+    
+   
     public void setStudentList(Set<Student> studentList) {
         this.studentList = studentList;
     }
+    
 
-    // Операции
+    public Student getStudent() {
+        return this.student;
+    }
+    
+   
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+    
 
-    /**
-     * Отметить посещение студента.
-     */
-    public boolean markAttendance(Student student) {
-        if (studentList.contains(student)) {
-            System.out.println("Attendance marked for: " + student.getName());
-            return true;
-        }
-        System.out.println("Student not found in the journal.");
+    public boolean markAttendance() {
+        //TODO
         return false;
     }
-
-    /**
-     * Добавить дисциплину.
-     */
-    public void addDiscipline(String discipline) {
-        disciplineList.add(discipline);
-        System.out.println("Discipline added: " + discipline);
+    
+   
+    public Void addDiscipline() {
+        //TODO
+        return null;
     }
-
-    /**
-     * Удалить дисциплину.
-     */
-    public void removeDiscipline(String discipline) {
-        if (disciplineList.remove(discipline)) {
-            System.out.println("Discipline removed: " + discipline);
-        } else {
-            System.out.println("Discipline not found: " + discipline);
-        }
+    
+   
+    public Void addStudent() {
+        //TODO
+        return null;
     }
-
-    /**
-     * Добавить студента.
-     */
-    public void addStudent(Student student) {
-        studentList.add(student);
-        System.out.println("Student added: " + student.getName());
+    
+   
+    public Void removeDiscipline() {
+        //TODO
+        return null;
     }
-
-    /**
-     * Удалить студента.
-     */
-    public void removeStudent(Student student) {
-        if (studentList.remove(student)) {
-            System.out.println("Student removed: " + student.getName());
-        } else {
-            System.out.println("Student not found: " + student.getName());
-        }
+    
+   
+    public Void removeStudent() {
+        //TODO
+        return null;
     }
+    
+    
 }

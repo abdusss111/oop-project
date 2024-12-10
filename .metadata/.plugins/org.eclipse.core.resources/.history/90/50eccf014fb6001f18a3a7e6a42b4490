@@ -1,0 +1,10 @@
+package tests;
+
+public class coursesTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

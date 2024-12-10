@@ -1,0 +1,16 @@
+package tests;
+import users.*;
+import courses.*;
+public class coursesTest {
+	public static void main(String[] args) {
+		Teacher pakita = new Teacher(123, 'pakita', 'password', 'lector', 'IS', 10000, 20, 30, 'PhD', 18, 'SITE');
+		Student abdussalam = new Student('abdussalam');
+		Course OOP = new Course('CSCI1111', 'OOP');
+		Course.assignTeacher(pakita);
+		Course.registerToCourse(abdussalam);
+		System.out.println(OOP);
+//		(int id, String username, String password, String role, String department, int salary,
+//		int workingHours, int vacationDays, String degree, int officeHours, String faculty) {
+	}
+
+}

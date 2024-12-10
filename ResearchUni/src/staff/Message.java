@@ -1,25 +1,21 @@
 package staff;
 
+import users.*;
 public class Message {
 
     private Integer id;
-    private String sender;
-    private String recipient;
+    private Employee sender;
     private String messageContent;
     private boolean isRead; // Поле для статуса "Прочитано"
     private boolean isArchived; // Поле для статуса "В архиве"
 
     // Constructor
-    public Message(Integer id, String sender, String recipient, String messageContent) {
+    public Message(Integer id, String messageContent) {
         this.id = id;
-        this.sender = sender;
-        this.recipient = recipient;
         this.messageContent = messageContent;
         this.isRead = false; // По умолчанию сообщение не прочитано
         this.isArchived = false; // По умолчанию сообщение не в архиве
     }
-
-    // Getters and setters
 
     public Integer getId() {
         return id;
@@ -29,21 +25,14 @@ public class Message {
         this.id = id;
     }
 
-    public String getSender() {
+    public Employee getSender() {
         return sender;
     }
 
-    public void setSender(String sender) {
+    public void setSender(Employee sender) {
         this.sender = sender;
     }
 
-    public String getRecipient() {
-        return recipient;
-    }
-
-    public void setRecipient(String recipient) {
-        this.recipient = recipient;
-    }
 
     public String getMessageContent() {
         return messageContent;
@@ -118,9 +107,17 @@ public class Message {
         return "Message Details:\n" +
                 "ID: " + id + "\n" +
                 "Sender: " + sender + "\n" +
-                "Recipient: " + recipient + "\n" +
                 "Content: " + messageContent + "\n" +
                 "Status: " + (isRead ? "Read" : "Unread") + "\n" +
                 "Archived: " + (isArchived ? "Yes" : "No");
+    }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", sender=" + sender +
+                ", messageContent='" + messageContent + '\'' +
+                '}';
     }
 }

@@ -92,7 +92,7 @@ public class ResearchProject {
                 "Title: " + projectTitle + "\n" +
                 "Description: " + projectDescription + "\n" +
                 "Leader: " + projectLeader + "\n" +
-                "Team Members: " + (teamMembers.isEmpty() ? "None" : String.join(", ", teamMembers)) + "\n" +
-                "Researcher: " + (researcher != null ? researcher.getName() : "None");
+                "Team Members: " + (teamMembers.isEmpty() ? "None" : String.join(", ", teamMembers));
+//                "Researcher: " + (researcher != null ? researcher.getName() : "None");
     }
 }

@@ -1,0 +1,63 @@
+package users;
+
+import staff.Message;
+public class Employee extends User {
+
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String role;
+    private String department;
+
+    /**
+     * Number of vacation days available.
+     */
+    public Employee() {
+        super();
+        this.role = "";
+        this.department = "";
+
+    }
+
+    public Employee(int id, String username, String password, String role, String department) {
+        super(id, username, password);
+        this.role = role;
+        this.department = department;
+       
+    }
+    
+   public Message sendMessage(Employee em) {
+	   
+   }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+  
+
+   
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + getId() +
+                ", username='" + getUsername() + '\'' +
+                ", role='" + role + '\'' +
+                ", department='" + department + '\'' +
+                '}';
+    }
+}

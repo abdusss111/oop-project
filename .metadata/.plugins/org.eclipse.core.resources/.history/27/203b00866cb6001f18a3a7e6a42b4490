@@ -1,0 +1,39 @@
+package courses;
+
+
+/**
+* @generated
+*/
+public class ElectiveCourse extends Course {
+    
+    public ElectiveCourse(String courseID, String title, ElectiveType et) {
+		super(courseID, title);
+		this.type = et;
+	}
+
+	/**
+    * @generated
+    */
+    private ElectiveType type;
+    
+    
+    
+
+    /**
+    * @generated
+    */
+    private ElectiveType getType() {
+        return this.type;
+    }
+    
+    /**
+    * @generated
+    */
+    public void setType(ElectiveType type) {
+        this.type = type;
+    }
+    
+    
+    
+    
+}

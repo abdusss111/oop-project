@@ -1,0 +1,29 @@
+package tests;
+import users.*;
+
+import java.util.*;
+
+import courses.*;
+public class coursesTest {
+	public static void main(String[] args) {
+//		reg for courses
+		Teacher pakita = new Teacher(123, "pakita", "password", "lector", "IS", 10000, 20, 30, "PhD", 18, "SITE");
+		Student abdussalam = new Student("abdussalam", 123);
+		Student abdussalam1 = new Student("abdussalam1", 456);
+		Student abdussalam2 = new Student("abdussalam2", 789);
+		Student abdussalam3 = new Student("abdussalam3", 101);
+		List<Student> studs = new ArrayList<>();
+		studs.add(abdussalam3);
+		studs.add(abdussalam2);
+		studs.add(abdussalam1);
+		studs.add(abdussalam);
+
+		Course OOP = new Course("CSCI1111", "OOP");
+		OOP.assignTeacher(pakita);
+		OOP.registerToCourse(abdussalam);
+		System.out.println(OOP);
+		
+//		
+	}
+
+}

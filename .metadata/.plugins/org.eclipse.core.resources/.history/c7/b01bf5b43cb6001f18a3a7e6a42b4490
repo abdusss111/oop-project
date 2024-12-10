@@ -1,0 +1,287 @@
+package courses;
+
+import users.*;
+import java.util.List;
+import java.util.Set;
+import java.util.ArrayList;
+
+/**
+* @generated
+*/
+public class Course {
+    
+    /**
+    * @generated
+    */
+    private String courseID;
+    
+    /**
+    * @generated
+    */
+    private String name;
+    
+    /**
+    * @generated
+    */
+    private LessonType LessonType;
+    
+    /**
+    * @generated
+    */
+    
+    /**
+    * @generated
+    */
+    private List<Student> studentsList;
+    
+    /**
+    * @generated
+    */
+    private List<Teacher> instructorsList;
+    
+    /**
+    * @generated
+    */
+    
+    /**
+    * @generated
+    */
+    private Set<Lesson> Schedule;
+    
+    /**
+    * @generated
+    */
+    
+    
+    /**
+    * @generated
+    */
+    private Lesson lesson;
+    
+    /**
+    * @generated
+    */
+    private Lesson lesson;
+    
+    /**
+    * @generated
+    */
+    private Mark mark;
+    
+    /**
+    * @generated
+    */
+    private Mark mark;
+    
+    
+
+    /**
+    * @generated
+    */
+    private String getCourseID() {
+        return this.courseID;
+    }
+    
+    /**
+    * @generated
+    */
+    private String setCourseID(String courseID) {
+        this.courseID = courseID;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    private String getName() {
+        return this.name;
+    }
+    
+    /**
+    * @generated
+    */
+    private String setName(String name) {
+        this.name = name;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    private LessonType getLessonType() {
+        return this.LessonType;
+    }
+    
+    /**
+    * @generated
+    */
+    private LessonType setLessonType(LessonType LessonType) {
+        this.LessonType = LessonType;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    public Language getLanguage() {
+        return this.Language;
+    }
+    
+    /**
+    * @generated
+    */
+    public Language setLanguage(Language Language) {
+        this.Language = Language;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    private Set<Student> getStudentsList() {
+        if (this.studentsList == null) {
+            this.studentsList = new HashSet<Student>();
+        }
+        return this.studentsList;
+    }
+    
+    /**
+    * @generated
+    */
+    private Set<Student> setStudentsList(Student studentsList) {
+        this.studentsList = studentsList;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    private List<Teacher> getInstructorsList() {
+        if (this.instructorsList == null) {
+            this.instructorsList = new ArrayList<Teacher>();
+        }
+        return this.instructorsList;
+    }
+    
+    /**
+    * @generated
+    */
+    private List<Teacher> setInstructorsList(Teacher instructorsList) {
+        this.instructorsList = instructorsList;
+    }
+    
+    
+    /**
+    * @generated
+    */
+
+
+    
+    /**
+    * @generated
+    */
+    public Set<Lesson> getSchedule() {
+        if (this.Schedule == null) {
+            this.Schedule = new HashSet<Lesson>();
+        }
+        return this.Schedule;
+    }
+    
+    /**
+    * @generated
+    */
+    public Set<Lesson> setSchedule(Lesson Schedule) {
+        this.Schedule = Schedule;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    private  get() {
+        return this.;
+    }
+    
+    /**
+    * @generated
+    */
+    private  set(invalid ) {
+        this. = ;
+    }
+    
+    
+    
+    /**
+    * @generated
+    */
+    public Mark getMark() {
+        return this.mark;
+    }
+    
+    /**
+    * @generated
+    */
+    public Mark setMark(Mark mark) {
+        this.mark = mark;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    public Mark getMark() {
+        return this.mark;
+    }
+    
+    /**
+    * @generated
+    */
+    public Mark setMark(Mark mark) {
+        this.mark = mark;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    public Lesson getLesson() {
+        return this.lesson;
+    }
+    
+    /**
+    * @generated
+    */
+    public Lesson setLesson(Lesson lesson) {
+        this.lesson = lesson;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    public Lesson getLesson() {
+        return this.lesson;
+    }
+    
+    /**
+    * @generated
+    */
+    public Lesson setLesson(Lesson lesson) {
+        this.lesson = lesson;
+    }
+    
+    
+    
+
+    //                          Operations                                  
+    
+    /**
+    * @generated
+    */
+    public void registerToCourse() {
+        //TODO
+        return null;
+    }
+    
+    
+}

@@ -1,0 +1,81 @@
+package users;
+public class Employee extends User {
+
+    private String role;
+    private String department;
+
+    /**
+     * Number of vacation days available.
+     */
+    private int vacationDays;  
+    public Employee() {
+        super();
+        this.role = "";
+        this.department = "";
+
+    }
+
+    public Employee(int id, String username, String password, String role, String department) {
+        super(id, username, password);
+        this.role = role;
+        this.department = department;
+       
+    }
+
+    /**
+     * Adds a task to the employee's task list.
+     *
+     * @param task Task to add.
+     */
+   
+    /**
+     * Simulates the employee taking a vacation.
+     */
+    public void takeVacation() {
+        if (vacationDays > 0) {
+            vacationDays--;
+            System.out.println(getUsername() + " is on vacation. Remaining days: " + vacationDays);
+        } else {
+            System.out.println(getUsername() + " has no vacation days left.");
+        }
+    }
+
+    // Getters and Setters
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+  
+
+    public int getVacationDays() {
+        return vacationDays;
+    }
+
+    public void setVacationDays(int vacationDays) {
+        this.vacationDays = vacationDays;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + getId() +
+                ", username='" + getUsername() + '\'' +
+                ", role='" + role + '\'' +
+                ", department='" + department + '\'' +
+                ", vacationDays=" + vacationDays +
+                '}';
+    }
+}

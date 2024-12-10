@@ -3,20 +3,21 @@ package users;
 import java.util.Date;
 
 public class Complaint {
-
+	private Urgency urgency;
     private String complaintTitle;
     private String complaintDescription;
-    private String complainantName;
     private String department;
     private String status; // Например: "Pending", "Resolved"
-    private String remarks;
     private Date complaintDate;
 
     // Constructor
-    public Complaint(String complaintTitle, String complaintDescription, String complainantName, String department) {
+    public Complaint(String title, Urgency urgency) {
+    	this.complaintTitle = title;
+    	this.urgency = urgency;							
+    }
+    public Complaint(String complaintTitle, String complaintDescription, Urgency urgency) {
         this.complaintTitle = complaintTitle;
         this.complaintDescription = complaintDescription;
-        this.complainantName = complainantName;
         this.department = department;
         this.status = "Pending"; // Начальный статус
         this.complaintDate = new Date(); // Текущая дата
@@ -40,13 +41,7 @@ public class Complaint {
         this.complaintDescription = complaintDescription;
     }
 
-    public String getComplainantName() {
-        return complainantName;
-    }
-
-    public void setComplainantName(String complainantName) {
-        this.complainantName = complainantName;
-    }
+    
 
     public String getDepartment() {
         return department;
@@ -64,13 +59,7 @@ public class Complaint {
         this.status = status;
     }
 
-    public String getRemarks() {
-        return remarks;
-    }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
-    }
 
     public Date getComplaintDate() {
         return complaintDate;
@@ -96,10 +85,7 @@ public class Complaint {
     /**
      * Adds remarks for the complaint with a log message.
      */
-    public void addRemarks(String newRemarks) {
-        this.remarks = newRemarks;
-        System.out.println("Remarks added: " + newRemarks);
-    }
+
 
     /**
      * Returns the complaint details.
@@ -108,10 +94,24 @@ public class Complaint {
         return "Complaint Details:\n" +
                 "Title: " + complaintTitle + "\n" +
                 "Description: " + complaintDescription + "\n" +
-                "Complainant: " + complainantName + "\n" +
                 "Department: " + department + "\n" +
                 "Status: " + status + "\n" +
-                "Remarks: " + (remarks != null ? remarks : "None") + "\n" +
                 "Date: " + complaintDate;
+    }
+
+	public Urgency getUrgency() {
+		return urgency;
+	}
+
+	public void setUrgency(Urgency urgency) {
+		this.urgency = urgency;
+	}
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return 
+                "urgency=" + urgency +
+                ", complaintTitle='" + complaintTitle + '\'' +
+                '}';
     }
 }

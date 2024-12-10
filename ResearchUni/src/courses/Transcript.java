@@ -1,144 +1,198 @@
 package courses;
 
-import java.util.Map;
-import java.util.HashMap;
-
+import java.util.*;
+import users.Student;
+/**
+* @generated
+*/
 public class Transcript {
-
+    
+    /**
+    * @generated
+    */
     private String studentProgram;
-    private Integer semester;
+    
+    /**
+    * @generated
+    */
+    private int semester;
+    
+    /**
+    * @generated
+    */
     private String courseName;
+    
+    /**
+    * @generated
+    */
     private String courseCode;
-    private Map<String, Grade> gradeMap; // Карта соответствия: код курса -> оценка
-    private Integer amountOfAttendance;
-    private Student student; // Ассоциация со студентом
+    
+    /**
+    * @generated
+    */
+    private Set<Grade> gradeMap;
+    
+    /**
+    * @generated
+    */
+    private int amountOfAttendance;
+    
+    /**
+    * @generated
+    */
+    private Student student;
+    
+    
+    /**
+    * @generated
+    */
+    private Student student2;
+    
+    
 
-    // Конструктор
-    public Transcript(String studentProgram, Integer semester, Student student) {
+    /**
+    * @generated
+    */
+    private String getStudentProgram() {
+        return this.studentProgram;
+    }
+    
+    /**
+    * @generated
+    */
+    private void setStudentProgram(String studentProgram) {
         this.studentProgram = studentProgram;
-        this.semester = semester;
-        this.student = student;
-        this.gradeMap = new HashMap<>();
-        this.amountOfAttendance = 0;
     }
-
-    // Getters и Setters
-    public String getStudentProgram() {
-        return studentProgram;
+    
+    
+    /**
+    * @generated
+    */
+    private int getSemester() {
+        return this.semester;
     }
-
-    public void setStudentProgram(String studentProgram) {
-        this.studentProgram = studentProgram;
-    }
-
-    public Integer getSemester() {
-        return semester;
-    }
-
-    public void setSemester(Integer semester) {
+    
+    /**
+    * @generated
+    */
+    private void setSemester(Integer semester) {
         this.semester = semester;
     }
-
-    public String getCourseName() {
-        return courseName;
+    
+    
+    /**
+    * @generated
+    */
+    private String getCourseName() {
+        return this.courseName;
     }
-
-    public void setCourseName(String courseName) {
+    
+    /**
+    * @generated
+    */
+    private void setCourseName(String courseName) {
         this.courseName = courseName;
     }
-
-    public String getCourseCode() {
-        return courseCode;
+    
+    
+    /**
+    * @generated
+    */
+    private String getCourseCode() {
+        return this.courseCode;
     }
-
-    public void setCourseCode(String courseCode) {
+    
+    /**
+    * @generated
+    */
+    private void setCourseCode(String courseCode) {
         this.courseCode = courseCode;
     }
-
-    public Map<String, Grade> getGradeMap() {
-        return gradeMap;
+    
+    
+    /**
+    * @generated
+    */
+    private Set<Grade> getGradeMap() {
+        if (this.gradeMap == null) {
+            this.gradeMap = new HashSet<Grade>();
+        }
+        return this.gradeMap;
     }
-
-    public void setGradeMap(Map<String, Grade> gradeMap) {
+    
+    /**
+    * @generated
+    */
+    private void setGradeMap(Set<Grade> gradeMap) {
         this.gradeMap = gradeMap;
     }
-
-    public Integer getAmountOfAttendance() {
-        return amountOfAttendance;
+    
+    
+    /**
+    * @generated
+    */
+    private int getAmountOfAttendance() {
+        return this.amountOfAttendance;
     }
-
-    public void setAmountOfAttendance(Integer amountOfAttendance) {
+    
+    /**
+    * @generated
+    */
+    private void setAmountOfAttendance(Integer amountOfAttendance) {
         this.amountOfAttendance = amountOfAttendance;
     }
-
+    
+    
+    /**
+    * @generated
+    */
     public Student getStudent() {
-        return student;
+        return this.student;
     }
-
+    
+    /**
+    * @generated
+    */
     public void setStudent(Student student) {
         this.student = student;
     }
-
-    // Операции
-
+    
+    
+    
     /**
-     * Добавить оценку по курсу.
-     */
-    public void addGrade(String courseCode, Grade grade) {
-        gradeMap.put(courseCode, grade);
-        System.out.println("Grade added for course: " + courseCode);
+    * @generated
+    */
+    public Student getStudent2() {
+        return this.student2;
     }
-
+    
+    
+    
+                                    
+    
     /**
-     * Вычислить средний GPA.
-     */
-    public double calculateGPA() {
-        if (gradeMap.isEmpty()) {
-            System.out.println("No grades available to calculate GPA.");
-            return 0.0;
-        }
-
-        double totalPoints = 0.0;
-        int totalCourses = gradeMap.size();
-
-        for (Grade grade : gradeMap.values()) {
-            totalPoints += grade.getGradePoints(); // Предполагаем наличие метода getGradePoints()
-        }
-
-        return totalPoints / totalCourses;
+    * @generated
+    */
+    public Void calculateGPA() {
+        //TODO
+        return null;
     }
-
+    
     /**
-     * Получить сводную информацию о транскрипте.
-     */
-    public String getTranscriptSummary() {
-        return "Transcript Summary:\n" +
-                "Program: " + studentProgram + "\n" +
-                "Semester: " + semester + "\n" +
-                "Student: " + (student != null ? student.getName() : "N/A") + "\n" +
-                "GPA: " + calculateGPA() + "\n" +
-                "Attendance: " + amountOfAttendance + " days";
+    * @generated
+    */
+    public Void getTranscriptSummary() {
+        //TODO
+        return null;
     }
-
+    
     /**
-     * Получить полный транскрипт.
-     */
-    public String getFullTranscript() {
-        StringBuilder transcript = new StringBuilder();
-        transcript.append("Full Transcript:\n");
-        transcript.append("Student: ").append(student != null ? student.getName() : "N/A").append("\n");
-        transcript.append("Program: ").append(studentProgram).append("\n");
-        transcript.append("Semester: ").append(semester).append("\n");
-        transcript.append("Courses and Grades:\n");
-
-        for (Map.Entry<String, Grade> entry : gradeMap.entrySet()) {
-            transcript.append("Course: ").append(entry.getKey())
-                      .append(" - Grade: ").append(entry.getValue().getLetterGrade()).append("\n");
-        }
-
-        transcript.append("Attendance: ").append(amountOfAttendance).append(" days\n");
-        transcript.append("GPA: ").append(calculateGPA()).append("\n");
-
-        return transcript.toString();
+    * @generated
+    */
+    public Void getFullTranscript() {
+        //TODO
+        return null;
     }
+    
+    
 }

@@ -1,0 +1,175 @@
+package courses;
+
+import java.util.*;
+import users.Student;
+/**
+* @generated
+*/
+public class UniversityJournal {
+    
+    /**
+    * @generated
+    */
+    private String disciplineList;
+    
+    /**
+    * @generated
+    */
+    private boolean isDataSaved;
+    
+    /**
+    * @generated
+    */
+    private String disciplineProfessors;
+    
+    /**
+    * @generated
+    */
+    private Set<Student> studentList;
+    
+    /**
+    * @generated
+    */
+    
+    
+    /**
+    * @generated
+    */
+    private Student student;
+    
+    
+
+    /**
+    * @generated
+    */
+    public String getDisciplineList() {
+        return this.disciplineList;
+    }
+    
+    /**
+    * @generated
+    */
+    public String setDisciplineList(String disciplineList) {
+        this.disciplineList = disciplineList;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    public boolean getIsDataSaved() {
+        return this.isDataSaved;
+    }
+    
+    /**
+    * @generated
+    */
+    public void setIsDataSaved(Boolean isDataSaved) {
+        this.isDataSaved = isDataSaved;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    public String getDisciplineProfessors() {
+        return this.disciplineProfessors;
+    }
+    
+    /**
+    * @generated
+    */
+    public void setDisciplineProfessors(String disciplineProfessors) {
+        this.disciplineProfessors = disciplineProfessors;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    public Set<Student> getStudentList() {
+        if (this.studentList == null) {
+            this.studentList = new HashSet<Student>();
+        }
+        return this.studentList;
+    }
+    
+    /**
+    * @generated
+    */
+    public void setStudentList(Set<Student> studentList) {
+        this.studentList = studentList;
+    }
+    
+    
+    /**
+    * @generated
+    */
+
+    /**
+    * @generated
+    */
+
+    
+    
+    /**
+    * @generated
+    */
+    public Student getStudent() {
+        return this.student;
+    }
+    
+    /**
+    * @generated
+    */
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+    
+    
+    
+
+    //                          Operations                                  
+    
+    /**
+    * @generated
+    */
+    public boolean markAttendance() {
+        //TODO
+        return false;
+    }
+    
+    /**
+    * @generated
+    */
+    public Void addDiscipline() {
+        //TODO
+        return null;
+    }
+    
+    /**
+    * @generated
+    */
+    public Void addStudent() {
+        //TODO
+        return null;
+    }
+    
+    /**
+    * @generated
+    */
+    public Void removeDiscipline() {
+        //TODO
+        return null;
+    }
+    
+    /**
+    * @generated
+    */
+    public Void removeStudent() {
+        //TODO
+        return null;
+    }
+    
+    
+}

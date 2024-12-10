@@ -1,0 +1,141 @@
+package courses;
+
+import users.Student;
+/**
+* @generated
+*/
+public class Lesson {
+    
+    /**
+    * @generated
+    */
+    private Time time;
+    
+    /**
+    * @generated
+    */
+    private LessonType type;
+    
+    /**
+    * @generated
+    */
+    private List<Student> students;
+    
+    /**
+    * @generated
+    */
+    private int room;
+    
+    
+    /**
+    * @generated
+    */
+    private Course course;
+    
+    /**
+    * @generated
+    */
+    private Course course;
+    
+    
+
+    /**
+    * @generated
+    */
+    private Time getTime() {
+        return this.time;
+    }
+    
+    /**
+    * @generated
+    */
+    private Time setTime(Time time) {
+        this.time = time;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    private LessonType getType() {
+        return this.type;
+    }
+    
+    /**
+    * @generated
+    */
+    private LessonType setType(LessonType type) {
+        this.type = type;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    private Set<Student> getStudents() {
+        if (this.students == null) {
+            this.students = new HashSet<Student>();
+        }
+        return this.students;
+    }
+    
+    /**
+    * @generated
+    */
+    private Set<Student> setStudents(Student students) {
+        this.students = students;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    private int getRoom() {
+        return this.room;
+    }
+    
+    /**
+    * @generated
+    */
+    private int setRoom(Integer room) {
+        this.room = room;
+    }
+    
+    
+    
+    /**
+    * @generated
+    */
+    public Course getCourse() {
+        return this.course;
+    }
+    
+    /**
+    * @generated
+    */
+    public Course setCourse(Course course) {
+        this.course = course;
+    }
+    
+    
+    /**
+    * @generated
+    */
+    public Course getCourse() {
+        return this.course;
+    }
+    
+    /**
+    * @generated
+    */
+    public Course setCourse(Course course) {
+        this.course = course;
+    }
+    
+    
+    
+
+    //                          Operations                                  
+    
+    
+}
