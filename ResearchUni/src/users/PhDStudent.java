@@ -28,3 +28,16 @@ public class PhDStudent {
         return hIndex;
     }
 }
+ // New Methods
+    public void addPublishedPaper(ResearchPaper paper) {
+        publishedPapers.add(paper);
+    }
+
+    public String getSupervisorName() {
+        return supervisor != null ? supervisor.toString() : "No supervisor";
+    }
+
+    public void incrementHIndex() {
+        hIndex++;
+    }
+}
