@@ -27,3 +27,16 @@ public class MasterStudent {
         System.out.println("Publishing research paper.");
     }
 }
+ // New Methods
+    public String getResearchTopic() {
+        return researchTopic;
+    }
+
+    public void setResearchTopic(String newTopic) {
+        this.researchTopic = newTopic;
+    }
+
+    public String describe() {
+        return "MasterStudent researching: " + researchTopic + ", supervised by: " + (advisor != null ? advisor.toString() : "None");
+    }
+}
