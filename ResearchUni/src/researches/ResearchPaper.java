@@ -26,3 +26,16 @@ public class ResearchPaper {
         System.out.println("Published in: " + journal + " on " + publishedDate);
     }
 }
+ // New Methods
+    public boolean isPublished() {
+        return publishedDate > 0;
+    }
+
+    public String getAbstractSnippet() {
+        return abstractText.length() > 50 ? abstractText.substring(0, 50) + "..." : abstractText;
+    }
+
+    public void updateJournal(String newJournal) {
+        this.journal = newJournal;
+    }
+}
