@@ -1,6 +1,6 @@
-package UMLdiagram;
+package tests;
 
-public class TestClass {
+public class AdminTest {
 
     public static void main(String[] args) {
         // Создаем администратора
