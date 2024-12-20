@@ -7,9 +7,11 @@ public class UniversityJournal {
     private String disciplineList;
 
     private boolean isDataSaved;
+    
    
     private String disciplineProfessors;
     
+   
     private Set<Student> studentList;
 
     private Student student;

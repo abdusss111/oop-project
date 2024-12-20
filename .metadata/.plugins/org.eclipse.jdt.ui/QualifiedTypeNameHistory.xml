@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="researches.Researcher"/>
+    <fullyQualifiedTypeName name="users.Student"/>
+    <fullyQualifiedTypeName name="courses.Course"/>
+    <fullyQualifiedTypeName name="courses.Grade"/>
+    <fullyQualifiedTypeName name="users.User"/>
+    <fullyQualifiedTypeName name="databases.UsersDB"/>
+    <fullyQualifiedTypeName name="staff.Message"/>
+</qualifiedTypeNameHistroy>

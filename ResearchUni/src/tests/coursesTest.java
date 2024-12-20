@@ -62,7 +62,7 @@ public class coursesTest {
 		System.out.println(sysdes);
 		
 		Message m = new Message(1, "alalal");
-		
+//		send mesages
 		rashidam.sendMessage(nuray, m);
 		System.out.println(nuray.getMessages());
 
