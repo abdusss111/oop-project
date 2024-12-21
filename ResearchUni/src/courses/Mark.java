@@ -5,76 +5,23 @@ import users.Student;
 * @generated
 */
 public class Mark {
-    
-    /**
-    * @generated
-    */
-    private Grade value;
-    
-    /**
-    * @generated
-    */
-    
-    /**
-    * @generated
-    */
-    
-    
-    /**
-    * @generated
-    */
-    
-    /**
-    * @generated
-    */
-    
-    public Mark(Grade value) {
-    	this.value = value;
-    }
+    private int value;
 
-    /**
-    * @generated
-    */
-    public Grade getValue() {
-        return this.value;
-    }
-    
-    /**
-    * @generated
-    */
-    public void setValue(Grade value) {
+    public Mark(int value) {
+        if (value < 0 || value > 100) {
+            throw new IllegalArgumentException("Mark must be between 0 and 100.");
+        }
         this.value = value;
     }
-    
-    
-    /**
-    * @generated
-    */
 
-    
-    
-    /**
-    * @generated
-    */
-
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public String getGradeValue() {
-        //TODO
-        return "";
+    public int getValue() {
+        return value;
     }
-    
-    /**
-    * @generated
-    */
-    public Void updateGrade() {
-        //TODO
-        return null;
+
+    public void setValue(int value) {
+        if (value < 0 || value > 100) {
+            throw new IllegalArgumentException("Mark must be between 0 and 100.");
+        }
+        this.value = value;
     }
-    
-    
 }

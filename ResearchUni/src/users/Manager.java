@@ -2,10 +2,14 @@ package users;
 
 import java.util.*;
 
+import courses.Course;
+
 /**
  * Represents a Manager who oversees employees, handles complaints, and manages courses.
  */
 public class Manager extends Employee {
+    private ManagerType type;
+    private List<String> newsFeed;
 
     /**
      * Set of complaints submitted by employees or students.
@@ -31,6 +35,8 @@ public class Manager extends Employee {
         this.reports = new HashSet<>();
         this.employeeRequests = new ArrayList<>();
         this.activeProjects = 0;
+        this.type = ManagerType.OFFICE_REGISTRATOR;
+        this.newsFeed = new ArrayList<>();
     }
     
     
@@ -85,6 +91,14 @@ public class Manager extends Employee {
         }
     }
 
+    public void addNews(String title, String content) {
+        String news = "Title: " + title + "\nContent: " + content + "\nAuthor: " + this.getUsername();
+        newsFeed.add(news);
+        System.out.println("News added:\n" + news);
+    }
+    public List<String> getNewsFeed() {
+        return newsFeed;
+    }
     /**
      * Processes an employee request by removing it from the list.
      *
@@ -144,6 +158,23 @@ public class Manager extends Employee {
     public void setActiveProjects(int activeProjects) {
         this.activeProjects = activeProjects;
     }
+    
+    public void approveStudentRegistration(Student student, Course course) {
+        if (course.getStudentsList().contains(student)) {
+            System.out.println("Student " + student.getName() + " is already registered for the course: " + course.getTitle());
+        } else {
+            course.registerToCourse(student); // course есть метод addStudent.
+            System.out.println("Registration approved for student " + student.getName() + " in course: " + course.getTitle());
+        }
+    }
+    public void assignCourseToTeacher(Course course, Teacher teacher) {
+        if (course.getInstructorsList().contains(teacher)) {
+            System.out.println("Teacher " + teacher.getName() + " is already assigned to the course: " + course.getTitle());
+        } else {
+            course.assignTeacher(teacher);
+            System.out.println("Teacher " + teacher.getName() + " successfully assigned to the course: " + course.getTitle());
+        }
+    }
 
     @Override
     public String toString() {
@@ -151,9 +182,34 @@ public class Manager extends Employee {
                 "id=" + getId() +
                 ", username='" + getUsername() + '\'' +
                 ", department='" + getDepartment() + '\'' +
+                ", type=" + type +
                 ", reports=" + reports +
                 ", employeeRequests=" + employeeRequests +
                 ", activeProjects=" + activeProjects +
                 '}';
     }
+
+
+
+	public ManagerType getType() {
+		return type;
+	}
+
+
+
+	public void setType(ManagerType type) {
+		this.type = type;
+	}
+
+
+
+	public Set<Complaint> getReports() {
+		return reports;
+	}
+
+
+
+	public void setReports(Set<Complaint> reports) {
+		this.reports = reports;
+	}
 }

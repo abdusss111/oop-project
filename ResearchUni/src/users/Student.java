@@ -1,79 +1,149 @@
 package users;
 
+import java.time.Year;
 import java.util.*;
 import users.Student;
 import courses.*;
 
-/**
- * Represents a Student with specific attributes and behaviors.
- */
 public class Student extends User {
-
-    /**
-     * Set of clubs the student is a member of.
-     */
-
-    /**
-     * Student's major (field of study).
-     */
+	private Set<String> clubs;
+	private Map<String, Role> clubRoles;
 	public Vector<Map<Mark, Course>> marks;
-	
     private String major;
-
-    /**
-     * Student's transcript (list of grades for courses).
-     */
-    private Map<String, String> transcript; // 
-
-    /**
-     * Set of courses the student is enrolled in.
-     */
+    private Map<String, String> transcript; 
     private Set<String> enrolledCourses;
-
-    /**
-     * Indicates if the student lives in a dormitory.
-     */
     private boolean dormLiver;
-
-    /**
-     * Indicates if the student has a grant (scholarship).
-     */
     private boolean grant;
-
-    /**
-     * Set of grades for specific courses.
-     */
     private Map<String, Integer> grades; // Курс -> Балл
-
-    /**
-     * Default constructor initializes default values.
-     */
-    public Student(String name, int id) {
+    private HashMap<Course, Mark> courses;
+    public Student(String name, String id) {
         super(name, id);
         this.marks = new Vector<Map<Mark, Course>>();
-       
+        this.clubs = new HashSet<>();
+        this.clubRoles = new HashMap<>();
+        this.enrolledCourses = new HashSet<>();
+        this.courses = new HashMap<>();
     }
     
     public Student() {
         super();
     }
     
-    
+    public void enrollInCourse(Course course) {
+        if (courses.containsKey(course)) {
+            System.out.println(this.getName() + " is already enrolled in the course: " + course.getTitle());
+            return;
+        }
 
+        if (course.getStudentsList().size() >= course.getLimit()) {
+            System.out.println("Cannot enroll " + this.getName() + " in the course: " + course.getTitle() + ". The course is full.");
+            return;
+        }
+
+        // Добавляем студента в список курса
+        course.getStudentsList().add(this);
+
+        // Добавляем курс в HashMap студента с начальной оценкой null
+        this.courses.put(course, null);
+        System.out.println(this.getName() + " successfully enrolled in the course: " + course.getTitle());
+    }
     /**
-     * Registers the student for a course.
-     *
-     * @param courseName The name of the course to register for.
+     * Displays all courses with their respective marks.
      */
-    public void registerForCourse(String courseName) {
-        if (enrolledCourses.contains(courseName)) {
-            System.out.println("You are already registered for the course: " + courseName);
+    public void viewCoursesWithMarks() {
+        System.out.println("Courses and Marks for " + this.getName() + ":");
+        if (courses.isEmpty()) {
+            System.out.println("No courses enrolled.");
         } else {
-            enrolledCourses.add(courseName);
-            System.out.println("Successfully registered for the course: " + courseName);
+            for (Map.Entry<Course, Mark> entry : courses.entrySet()) {
+            	String mark = (entry.getValue() == null) ? "Not Graded" : String.valueOf(entry.getValue().getValue());
+                System.out.println("- Course: " + entry.getKey().getTitle() + ", Mark: " + mark);
+            }
         }
     }
 
+    public HashMap<Course, Mark> getCourses() {
+        return courses; // Поле `courses` должно быть объявлено как `HashMap<Course, Mark>`
+    }
+    
+    public int getStudyYear() {
+        // Преобразуем id в строку
+        String idString = String.valueOf(id);
+        if (idString.length() < 2) {
+            throw new IllegalArgumentException("Invalid ID format");
+        }
+
+        try {
+            // Извлекаем первые два символа ID и преобразуем в год поступления
+            int admissionYear = Integer.parseInt(idString.substring(0, 2)) + 2000;
+            
+            // Получаем текущий год
+            int currentYear = Year.now().getValue();
+
+            // Вычисляем разницу между текущим годом и годом поступления
+            return currentYear - admissionYear + 1;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("ID format must start with two digits representing the admission year");
+        }
+    }
+
+    public void joinClub(String clubName, Role role, Set<String> availableClubs) {
+        if (!availableClubs.contains(clubName)) {
+            System.out.println("Club \"" + clubName + "\" does not exist.");
+            return;
+        }
+
+        if (clubs.contains(clubName)) {
+            System.out.println(this.getName() + " is already a member of \"" + clubName + "\".");
+        } else {
+            clubs.add(clubName);
+            clubRoles.put(clubName, role);
+            System.out.println(this.getName() + " has successfully joined the club \"" + clubName + "\" as " + role + ".");
+        }
+    }
+    public void viewClubRoles() {
+        if (clubRoles.isEmpty()) {
+            System.out.println(this.getName() + " has no roles in any clubs.");
+        } else {
+            System.out.println(this.getName() + " has the following roles in clubs:");
+            for (Map.Entry<String, Role> entry : clubRoles.entrySet()) {
+                System.out.println("- " + entry.getKey() + ": " + entry.getValue());
+            }
+        }
+    }
+    public void updateRole(String clubName, Role newRole) {
+        if (clubRoles.containsKey(clubName)) {
+            clubRoles.put(clubName, newRole);
+            System.out.println(this.getName() + "'s role in \"" + clubName + "\" has been updated to " + newRole + ".");
+        } else {
+            System.out.println("Student is not a member of \"" + clubName + "\".");
+        }
+    }
+    
+    
+
+ 
+
+    public void printEnrolledCourses() {
+        if (enrolledCourses.isEmpty()) {
+            System.out.println(this.getName() + " is not enrolled in any courses.");
+        } else {
+            System.out.println(this.getName() + " is enrolled in the following courses:");
+            for (String courseID : enrolledCourses) {
+                System.out.println("- " + courseID);
+            }
+        }
+    }
+
+
+
+  
+
+
+
+
+    
+    
     /**
      * Rates a teacher.
      *

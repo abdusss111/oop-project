@@ -1,10 +1,11 @@
 package courses;
 
+import users.Student;
 
 public class ElectiveCourse extends Course {
     
-    public ElectiveCourse(String courseID, String title, ElectiveType et) {
-		super(courseID, title);
+    public ElectiveCourse(String courseID, String title, ElectiveType et, int limit) {
+		super(courseID, title,limit);
 		this.type = et;
 	}
 
@@ -20,8 +21,8 @@ public class ElectiveCourse extends Course {
     public void setType(ElectiveType type) {
         this.type = type;
     }
-    
-    
+   
+   
     
     
 }

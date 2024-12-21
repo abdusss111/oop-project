@@ -3,16 +3,16 @@ package users;
 import java.io.Serializable;
 
 public abstract class User implements Serializable {
-    private int id; // Добавлен тип данных.
+    public String id; // Добавлен тип данных.
     private String name;
     private String username;
     private String password;
     public User() {
-        this.id = 0;
+        this.id = "";
         
     }
     
-    public User(String name, int id) {
+    public User(String name, String id) {
     	this.name = name;
     	this.id = id;
     }
@@ -26,7 +26,7 @@ public abstract class User implements Serializable {
      * @param username Username of the user.
      * @param password Password of the user.
      */
-    public User(int id, String username, String password) {
+    public User(String id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -52,11 +52,11 @@ public abstract class User implements Serializable {
 
     // Getters and Setters
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

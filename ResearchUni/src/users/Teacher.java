@@ -7,8 +7,8 @@ public class Teacher extends Employee {
     private List<String> courses;
     private String degree;
     private int officeHours;
-
- 
+    private Map<Course, Mark> courseMarks = new HashMap<>();
+    
     private String faculty;
     public Teacher() {
         super();
@@ -18,7 +18,7 @@ public class Teacher extends Employee {
         this.faculty = "Unknown";
     }
 
-    public Teacher(int id, String username, String password, String role, String department, String degree, int officeHours, String faculty) {
+    public Teacher(String id, String username, String password, String role, String department, String degree, int officeHours, String faculty) {
         super(id, username, password, role, department);
         this.courses = new ArrayList<>();
         this.degree = degree;
@@ -27,14 +27,6 @@ public class Teacher extends Employee {
     }
 
 
-    public void addCourse(Course course) {
-//        if (!courses.contains(course)) {
-//            courses.add(course);
-//            System.out.println("Course \"" + course + "\" has been added to " + getUsername() + "'s list.");
-//        } else {
-//            System.out.println("Course \"" + course + "\" is already in the list.");
-//        }
-    }
 
     
     public void manageCourses() {
@@ -48,28 +40,33 @@ public class Teacher extends Employee {
         }
     }
 
-    /**
-     * Assigns a mark to a student for a specific course with validation.
-     *
-     * @param studentName The name of the student.
-     * @param courseName  The course for which the mark is assigned.
-     * @param mark        The mark to assign (must be between 0 and 100).
-     */
-    public void putMark(Student student, Course course, Mark mark) {
-        Map<Mark, Course> newEntry = new HashMap<>();
-        newEntry.put(mark, course); // Create a new map entry for the course and mark
-        student.marks.add(newEntry); // Add this map to the vector
-    }
+    public boolean putMark(Student student, Course course, Mark mark) {
+        // Проверка: студент должен быть зарегистрирован на курс
+        if (!student.getCourses().containsKey(course)) {
+            System.out.println("Student " + student.getName() + " is not enrolled in the course: " + course.getTitle());
+            return false;
+        }
 
+        // Привязка преподавателя к курсу, если он его ещё не ведёт
+        courseMarks.putIfAbsent(course, null);
+
+        // Обновление оценки в `HashMap` студента
+        student.getCourses().put(course, mark);
+
+        // Сохранение оценки в `courseMarks` преподавателя
+        courseMarks.put(course, mark);
+
+        System.out.println("Mark " + mark.getValue() + " for " + student.getName() + " in course " + course.getTitle() + " successfully assigned.");
+        return true;
+    }
+    
 
     /**
      * Views marks for students in a specific course with mock data.
      *
      * @param courseName The course name.
      */
-    public void viewMarks(String courseName) {
-    	
-    }
+
 
     /**
      * Checks the attendance for a course and prints a mock report.
